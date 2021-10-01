@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IOT_NhietKe</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="wellcom">Wellcom to SmartTemp</string>
+</resources>

@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/IOT_NhietKe/app/src/main/res/layout/activity_main.xml" value="0.10435663627152988" />
+        <entry key="..\:/IOT_NhietKe/app/src/main/res/layout/activity_main2.xml" value="0.14166666666666666" />
+        <entry key="..\:/IOT_NhietKe/app/src/main/res/layout/fragment_home.xml" value="0.3671875" />
+        <entry key="..\:/IOT_NhietKe/app/src/main/res/layout/main_activity.xml" value="0.20572916666666666" />
+        <entry key="..\:/IOT_NhietKe/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20572916666666666" />
+        <entry key="..\:/IOT_NhietKe/app/src/main/res/menu/buttom_nav.xml" value="0.215625" />
         <entry key="..\:/THUC/NhietKeIOT/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
       </map>
     </option>

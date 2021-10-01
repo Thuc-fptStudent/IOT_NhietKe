@@ -1,6 +1,7 @@
 package com.example.nhietkeiot
 
 import android.Manifest
+import android.app.ActionBar
 import android.app.Activity
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
@@ -17,6 +18,11 @@ import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationMenu
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.Console
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var list : ArrayList<String>
     var REQUEST_ENABLE_BT = 1
     var REQUEST_DISCOVERABLE_BT = 2
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
         checkHasBlue()
         checkBlue()
+        discoverableTheBlue()
         showListDevice()
-
     }
 
     //Kiểm tra thiết bị xem có hỗ trợ bluetooth không
@@ -58,12 +65,12 @@ class MainActivity : AppCompatActivity() {
 
     fun discoverableTheBlue() {
         if (!bluetoothAdapter.isDiscovering) {
-            Log.e("BLUETOOTH: ", "Discovering")
-            Toast.makeText(application, "Discovering", Toast.LENGTH_SHORT).show()
             var intent: Intent
             intent = Intent(Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE))
             startActivityForResult(intent, REQUEST_DISCOVERABLE_BT)
             getListOfPairDevice()
+            Log.e("BLUETOOTH: ", "Discovering")
+            Toast.makeText(application, "Discovering", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -72,7 +79,6 @@ class MainActivity : AppCompatActivity() {
         if (bluetoothAdapter.isEnabled){
             var device = bluetoothAdapter.bondedDevices
             for (device in device){
-                tvDevice.append("\n"+device.name)
                 list.add(device.name)
             }
 
@@ -100,6 +106,5 @@ class MainActivity : AppCompatActivity() {
 
     fun click(view: android.view.View) {
         list = ArrayList()
-        discoverableTheBlue()
     }
 }
